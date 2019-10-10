@@ -1,0 +1,25 @@
+<paste log output from Kubernetes-mediated prediction, here>
+(.devops) xiaoyangs-MBP:project-ml-microservice-kubernetes LA-ZXY$ ./run_kubernetes.sh 
+deployment.apps/predict-node created
+NAME                           READY   STATUS    RESTARTS   AGE
+predict-node-547d55c59-gxcz5   0/1     Pending   0          0s
+service/predict-node exposed
+error: unable to forward port because pod is not running. Current status=Pending
+(.devops) xiaoyangs-MBP:project-ml-microservice-kubernetes LA-ZXY$ kubectl get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+predict-node-547d55c59-gxcz5   1/1     Running   0          23s
+(.devops) xiaoyangs-MBP:project-ml-microservice-kubernetes LA-ZXY$ kubectl get service
+NAME           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes     ClusterIP   10.96.0.1      <none>        443/TCP        113m
+predict-node   NodePort    10.97.113.29   <none>        80:31407/TCP   43s
+(.devops) xiaoyangs-MBP:project-ml-microservice-kubernetes LA-ZXY$ kubectl port-forward service/predict-node 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+(.devops) xiaoyangs-MBP:project-ml-microservice-kubernetes LA-ZXY$ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
