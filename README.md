@@ -1,5 +1,8 @@
 <include a CircleCI status badge, here>
 
+###status badges
+[![CircleCI](https://circleci.com/gh/zhan430/docker.svg?style=svg)](https://circleci.com/gh/zhan430/docker)
+
 ## Project Overview
 
 In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
@@ -40,3 +43,5 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+
